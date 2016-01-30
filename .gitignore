@@ -1,0 +1,9 @@
+.settings
+.classpath
+.project
+.idea
+.sonar
+*.iml
+bin
+target
+logs
