@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <title>Movies</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    <body>
+        <div th:unless="${#lists.isEmpty(movies)}">
+
+            <h2>Movies</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="movie : ${movies}">
+                        <td><a th:href="${'/movie/' + movie.id}" th:text="${movie.title}">Title</a></td>
+                        <td><form th:action="@{'/movie/delete/'+ ${movie.id}}" th:object="${movie}" th:method="post">
+                                <button name="deleteMovie" type="submit" value="0">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+            <a th:href="@{/movie/new}">Add New Movie</a>
+        </div>
+    </body>
+</html>
