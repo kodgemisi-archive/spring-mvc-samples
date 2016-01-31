@@ -8,7 +8,10 @@
         
         <ul>
         	<li th:each="user : ${userList}">
-        	Name: <th:block th:text="${user.name}">Deneme user</th:block> | age: <th:block th:text="${user.age}">99</th:block></li>
+        		Name: <th:block th:text="${user.name}">Deneme user</th:block>
+        		|
+        		age: <th:block th:text="${user.age}">99</th:block>
+        	</li>
         </ul>
         
     </body>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <title>Spring Framework Guru</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    <body>
+    	<h1>Movies</h1>
+    	
+    	if msg exists show msg TODO
+    	http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html
+    	
+		<ul>
+			<li th:each="movie : ${movieList}">
+				Title: <th:block th:text="${movie.title}"></th:block>
+				|
+				Year: <th:block th:text="${movie.year}"></th:block>
+			</li>
+		</ul>
+    </body>
+</html>

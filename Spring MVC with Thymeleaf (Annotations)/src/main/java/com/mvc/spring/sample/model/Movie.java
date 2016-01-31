@@ -39,4 +39,11 @@ public class Movie {
 		this.director = director;
 	}
 
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", title=" + title + ", year=" + year + ", director=" + director + "]";
+	}
+	
+	
+
 }
