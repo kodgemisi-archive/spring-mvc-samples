@@ -2,6 +2,7 @@ package com.mvc.spring.sample.controller;
 
 import com.mvc.spring.sample.model.Movie;
 import com.mvc.spring.sample.service.MovieService;
+import com.mvc.spring.sample.service.RateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,8 @@ public class MovieController {
 
     @Autowired
     private MovieService movieService;
+    @Autowired
+    private RateService rateService;
 
     @RequestMapping(value = "/movies", method = RequestMethod.GET)
     public String listMovies(Model model) {
@@ -43,6 +46,7 @@ public class MovieController {
     @RequestMapping(value = "/movie/{id}", method = RequestMethod.GET)
     public String getMovie(@PathVariable Integer id, Model model) {
         Movie movie = movieService.getMovie(id);
+        model.addAttribute("rates", rateService.getByMovie(movie));
         model.addAttribute("movie", movie);
         return "movie/update-movie";
     }
