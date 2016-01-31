@@ -9,6 +9,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  */
 @EnableWebMvc
 @Configuration
-@ComponentScan({"com.mvc.spring.sample.controller"})
+@ComponentScan({"com.mvc.spring.sample"})
 public class AppConfig {
 }

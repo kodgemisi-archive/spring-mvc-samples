@@ -5,6 +5,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     </head>
     <body>
-        <p th:text="'Hello, ' + ${name} + '!'" />
+        
+        <ul>
+        	<li th:each="user : ${userList}">
+        	Name: <th:block th:text="${user.name}">Deneme user</th:block> | age: <th:block th:text="${user.age}">99</th:block></li>
+        </ul>
+        
     </body>
 </html>
