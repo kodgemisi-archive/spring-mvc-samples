@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>New Rate</title>
+</head>
+<body>
+<div>
+    <h2>New Rate</h2>
+
+    <form th:action="@{/rate}" th:object="${rate}" th:method="post">
+        <select th:field="*{movie.id}">
+            <option th:each="movie : ${movies}"
+                    th:value="${movie.id}" th:text="${movie.title}">moviename</option>
+        </select>
+
+        <label>Value</label>
+        <input type="text" th:field="*{value}" />
+        <button name="addRate" type="submit" value="0">Add Rate</button>
+    </form>
+</div>
+</body>
+</html>

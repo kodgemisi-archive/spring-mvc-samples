@@ -13,6 +13,9 @@
                 <input type="text" th:field="*{title}" />
                 <button name="updateMovie" type="submit" value="0">Update Movie</button>
             </form>
+
+            <div th:each="rate : ${rates}"
+                    th:value="${rate.value}" th:text="${rate.value}">rate</div>
         </div>
     </body>
 </html>

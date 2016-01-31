@@ -1,9 +1,8 @@
 package com.mvc.spring.sample.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Aykut on 31.01.2016.
@@ -15,6 +14,9 @@ public class Movie {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private String title;
+
+    @OneToMany(mappedBy = "movie")
+    private Set<Rate> rates = new HashSet<>();
 
     public Integer getId() {
         return id;
@@ -32,4 +34,11 @@ public class Movie {
         this.title = title;
     }
 
+    public Set<Rate> getRates() {
+        return rates;
+    }
+
+    public void setRates(Set<Rate> rates) {
+        this.rates = rates;
+    }
 }
