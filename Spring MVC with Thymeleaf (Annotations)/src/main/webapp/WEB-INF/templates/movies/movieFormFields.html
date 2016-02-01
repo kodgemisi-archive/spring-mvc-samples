@@ -1,10 +1,19 @@
 <th:block th:fragment="fields(btnText)">
 	<input type="hidden" th:field="*{id}" th:value="*{id}" />
-	<input type="text" th:field="*{title}" th:value="*{title}" />
+	<input type="text" th:field="*{title}" th:value="*{title}" placeholder="title" />
+	<p th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title problem</p>
 	<br/>
-	<input type="number" th:field="*{year}" th:value="*{year}"/>
+	<input type="number" th:field="*{year}" th:value="*{year}" placeholder="year"/>
 	<br/>
-	<input type="text" th:field="*{director}" th:value="*{director}" /> 
+	<input type="text" th:field="*{director}" th:value="*{director}" placeholder="director" /> 
 	<br/>
+	<input type="text" th:field="*{imdbId}" th:value="*{imdbId}" placeholder="IMDB Id" /> 
+	<br/>
+	<img th:src="*{posterUrl}" />
+	
 	<button th:text="${btnText}">Button Text</button>
+	
+	<ul>
+	  <li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+	</ul>
 </th:block>

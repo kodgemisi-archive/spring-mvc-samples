@@ -25,9 +25,26 @@
     	
 		<ul>
 			<li th:each="comment : ${movie.comments}">
-				<span th:text="${comment.date}"></span>
+				<span th:text="${#calendars.format(comment.date,'dd MMMM yyyy HH:mm')}"></span>
 				<div th:text="${comment.value}"></div>
 			</li>
 		</ul>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
