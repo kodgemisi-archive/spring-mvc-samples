@@ -15,9 +15,9 @@
 				|
 				Year: <th:block th:text="${movie.year}">1999</th:block>
 				|
-				<a th:href="@{'/movies/' + ${movie.id} }">Edit</a>
+				<a th:href="@{'/movies/' + ${movie.id} + '/update' }">Edit</a>
 				|
-				<a th:href="@{/movies/{movieId}(movieId=${movie.id})}">Edit</a>
+				<a th:href="@{/movies/{movieId}/update(movieId=${movie.id})}">Edit</a>
 				|
 				<a>TODO implement delete</a>
 				

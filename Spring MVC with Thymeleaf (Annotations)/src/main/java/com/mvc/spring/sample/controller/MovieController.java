@@ -48,7 +48,7 @@ public class MovieController {
 		return "movies/movieList";
 	}
 	
-	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(path = "/{id}/update", method = RequestMethod.GET)
 	public String updateForm(Model model, @PathVariable("id") Integer id) {
 		
 		Movie movie = movieService.findById(id);

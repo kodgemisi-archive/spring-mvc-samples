@@ -1,8 +1,17 @@
 package com.mvc.spring.sample.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Movie {
@@ -14,6 +23,11 @@ public class Movie {
 	private String title;
 	private Integer year;
 	private String director;
+	
+	@OneToMany(mappedBy = "target")
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
+	private Set<Comment> comments = new HashSet<>();
 
 	public Integer getId() {
 		return id;
@@ -45,6 +59,19 @@ public class Movie {
 
 	public void setDirector(String director) {
 		this.director = director;
+	}
+
+	public Set<Comment> getComments() {
+		return comments;
+	}
+	
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
+	}
+	
+	public void addComment(Comment comment) {
+		this.comments.add(comment);
+		comment.setTarget(this);
 	}
 
 	@Override
