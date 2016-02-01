@@ -1,5 +1,5 @@
 CREATE TABLE Movie (
-  id         INTEGER PRIMARY KEY,
+  id    INTEGER IDENTITY,
   title VARCHAR(50),
   year  INTEGER,
   director VARCHAR(50)
