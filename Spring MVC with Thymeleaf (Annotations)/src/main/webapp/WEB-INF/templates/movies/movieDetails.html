@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <title>Spring Framework Guru</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+    <body>
+    	<h1>Movies</h1>
+    	
+    	<p th:if="${message != null}" th:text="${message}">Message if exists</p>
+    	
+    	<p th:text="${movie.id}"></p>
+    	<p th:text="${movie.title}"></p>
+    	<p th:text="${movie.year}"></p>
+    	<p th:text="${movie.director}"></p>
+    	
+    	<form
+	    	th:action="@{/movies/{movieId}/comments(movieId=${movie.id})}"
+	    	method="post"
+	    	th:object="${comment}"
+	    >
+    		<textarea rows="3" th:field="*{value}"></textarea>
+    		<button>Add comment</button>
+    	</form>
+    	
+		<ul>
+			<li th:each="comment : ${movie.comments}">
+				<span th:text="${comment.date}"></span>
+				<div th:text="${comment.value}"></div>
+			</li>
+		</ul>
+    </body>
+</html>

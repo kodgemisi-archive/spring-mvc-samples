@@ -11,7 +11,9 @@
     	
 		<ul>
 			<li th:each="movie : ${movieList}">
-				Title: <th:block th:text="${movie.title}">movie title</th:block>
+				<a th:href="@{/movies/{movieId}(movieId=${movie.id})}">
+					Title: <th:block th:text="${movie.title}">movie title</th:block>
+				</a>
 				|
 				Year: <th:block th:text="${movie.year}">1999</th:block>
 				|
