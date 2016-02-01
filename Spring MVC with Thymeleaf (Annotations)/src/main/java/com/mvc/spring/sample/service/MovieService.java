@@ -22,4 +22,14 @@ public class MovieService {
 		return movieRepository.findAll();
 	}
 
+	public Movie findById(Integer id) {
+		return movieRepository.findOne(id);
+	}
+
+	public Movie update(Movie movie) {
+		return movieRepository.save(movie);
+	}
+	
+	//TODO implement delete
+
 }

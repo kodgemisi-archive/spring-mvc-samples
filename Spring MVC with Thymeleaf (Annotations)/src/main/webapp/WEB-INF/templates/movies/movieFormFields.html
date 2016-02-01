@@ -1,0 +1,10 @@
+<th:block th:fragment="fields(btnText)">
+	<input type="hidden" th:field="*{id}" th:value="*{id}" />
+	<input type="text" th:field="*{title}" th:value="*{title}" />
+	<br/>
+	<input type="number" th:field="*{year}" th:value="*{year}"/>
+	<br/>
+	<input type="text" th:field="*{director}" th:value="*{director}" /> 
+	<br/>
+	<button th:text="${btnText}">Button Text</button>
+</th:block>

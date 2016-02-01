@@ -15,6 +15,14 @@ public class Movie {
 	private Integer year;
 	private String director;
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -43,7 +51,5 @@ public class Movie {
 	public String toString() {
 		return "Movie [id=" + id + ", title=" + title + ", year=" + year + ", director=" + director + "]";
 	}
-	
-	
 
 }

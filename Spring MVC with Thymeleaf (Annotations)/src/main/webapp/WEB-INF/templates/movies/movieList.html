@@ -7,14 +7,20 @@
     <body>
     	<h1>Movies</h1>
     	
-    	if msg exists show msg TODO
-    	http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html
+    	<p th:if="${message != null}" th:text="${message}">Error message if exists</p>
     	
 		<ul>
 			<li th:each="movie : ${movieList}">
-				Title: <th:block th:text="${movie.title}"></th:block>
+				Title: <th:block th:text="${movie.title}">movie title</th:block>
 				|
-				Year: <th:block th:text="${movie.year}"></th:block>
+				Year: <th:block th:text="${movie.year}">1999</th:block>
+				|
+				<a th:href="@{'/movies/' + ${movie.id} }">Edit</a>
+				|
+				<a th:href="@{/movies/{movieId}(movieId=${movie.id})}">Edit</a>
+				|
+				<a>TODO implement delete</a>
+				
 			</li>
 		</ul>
     </body>
