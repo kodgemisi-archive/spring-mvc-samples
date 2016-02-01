@@ -5,13 +5,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     </head>
     <body>
-    	<h1>Create new Movie</h1>
+    	<h1>Update a Movie</h1>
 		<form
-			th:action="@{/movies/}"
+			th:action="@{/movies/{movieId}(movieId=${movie.id})}"
 			method="post"
 			th:object="${movie}"
-			th:include="movies/movieFormFields::fields('Create')"
+			th:include="movies/movieFormFields::fields('Update')"
 		>
+
 		</form>
     </body>
 </html>
