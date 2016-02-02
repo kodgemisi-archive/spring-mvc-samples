@@ -3,9 +3,32 @@
     <head lang="en">
         <title>Spring Framework Guru</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     </head>
     <body>
         <h1>Hello</h1>
         <h2>Fellow Spring Framework Gurus!!!</h2>
+        
+        
+        <button id="btn">Show movie count</button>
+        <p id="movieCount"></p>
+        
+        
+        <script type="text/javascript">
+        	$(document).ready(function(){// do things when page load is finished
+        		
+        		$('#btn').click(function(){
+        			$.get('http://localhost:8080/basic-controller/api/movies', function(data){
+            			var movieCount = data.length;
+            			
+            			$('#movieCount').text(movieCount);
+            		});
+        		});
+        		
+        		
+        	});
+        </script>
+        
     </body>
 </html>
