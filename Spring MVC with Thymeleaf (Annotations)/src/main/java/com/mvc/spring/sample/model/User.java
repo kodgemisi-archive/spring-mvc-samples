@@ -73,6 +73,7 @@ public class User implements UserDetails {
 		return list;
 	}
 
+	@Override
 	public String getPassword() {
 		return password;
 	}
