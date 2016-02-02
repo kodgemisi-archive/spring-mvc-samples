@@ -28,18 +28,4 @@ public class GreetingController {
         model.addAttribute("person", name);
         return "basic/greeting";
     }
-    
-    @RequestMapping(path = "/list", method = RequestMethod.GET)
-    public String list(Model model) {
-  
-    	List<User> users = new ArrayList<>();
-    	users.add(new User("ahmet", 21));
-    	users.add(new User("ayse", 22));
-    	users.add(new User("ebru", 33));
-    	
-    	model.addAttribute("userList", users);
-    	
-        return "list";
-    }
-
 }

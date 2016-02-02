@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Spring Framework Guru</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Create New User</h1>
+<form
+        th:action="@{/users/}"
+        method="post"
+        th:object="${user}"
+        th:include="users/userFormFields::fields('Create')"
+>
+</form>
+</body>
+</html>

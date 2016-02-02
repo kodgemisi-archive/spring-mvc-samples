@@ -38,7 +38,7 @@ public class Movie {
 	@Fetch(FetchMode.JOIN)
 	@Cascade(CascadeType.ALL)
 	private Set<Comment> comments = new HashSet<>();
-	
+
 	private String imdbId;
 	private String posterUrl;
 
