@@ -1,0 +1,15 @@
+<th:block th:fragment="fields(btnText)">
+    <input type="hidden" th:field="*{id}" th:value="*{id}" />
+    <input type="text" th:field="*{username}" th:value="*{username}" placeholder="username" />
+    <br/>
+    <input type="text" th:field="*{password}" th:value="*{password}" placeholder="password" />
+    <br/>
+    <input type="number" th:field="*{age}" th:value="*{age}" placeholder="age"/>
+    <br/>
+
+    <button th:text="${btnText}">Button Text</button>
+
+    <ul>
+        <li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+    </ul>
+</th:block>

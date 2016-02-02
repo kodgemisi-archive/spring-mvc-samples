@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Spring Framework Guru</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Users</h1>
+
+<p th:if="${message != null}" th:text="${message}">Error message if exists</p>
+
+<ul>
+    <li th:each="user : ${userList}">
+        <a th:href="@{/users/{userId}(userId=${user.id})}">
+            Username: <th:block th:text="${user.username}">username</th:block>
+        </a>
+        |
+        Age: <th:block th:text="${user.age}">10</th:block>
+        |
+        <a>TODO implement delete</a>
+
+    </li>
+</ul>
+</body>
+</html>
