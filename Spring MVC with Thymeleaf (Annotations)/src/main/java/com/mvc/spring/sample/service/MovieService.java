@@ -40,6 +40,9 @@ public class MovieService {
 	}
 
 	public Movie update(Movie movie) {
+		String posterUrl = this.getPosterUrl(movie.getImdbId());
+		movie.setPosterUrl(posterUrl);
+		
 		return movieRepository.save(movie);
 	}
 

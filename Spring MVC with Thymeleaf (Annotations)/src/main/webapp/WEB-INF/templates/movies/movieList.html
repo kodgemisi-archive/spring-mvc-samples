@@ -6,6 +6,7 @@
     </head>
     <body>
     	<h1>Movies</h1>
+    	<p>You viewed this page <span th:text="${pageViewCount}"></span> times.</p>
     	
     	<p th:if="${message != null}" th:text="${message}">Error message if exists</p>
     	
@@ -25,5 +26,31 @@
 				
 			</li>
 		</ul>
+		
+		<div>
+			<strong>Last shown</strong>
+			<ol>
+				<li th:each="movie : ${lastShownMovies}"><span th:text="${movie.title}"></span></li>
+			</ol>
+		</div>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

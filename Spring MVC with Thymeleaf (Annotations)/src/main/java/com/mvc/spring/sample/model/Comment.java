@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Comment {
 
@@ -18,6 +20,7 @@ public class Comment {
 	
 	private Calendar date;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Movie target;
 

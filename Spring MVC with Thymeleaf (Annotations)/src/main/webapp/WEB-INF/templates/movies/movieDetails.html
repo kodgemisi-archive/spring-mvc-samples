@@ -13,6 +13,7 @@
     	<p th:text="${movie.title}"></p>
     	<p th:text="${movie.year}"></p>
     	<p th:text="${movie.director}"></p>
+    	<img th:src="${movie.posterUrl}" />
     	
     	<form
 	    	th:action="@{/movies/{movieId}/comments(movieId=${movie.id})}"

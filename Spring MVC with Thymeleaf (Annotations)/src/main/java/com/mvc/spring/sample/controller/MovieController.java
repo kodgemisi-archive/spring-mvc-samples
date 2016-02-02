@@ -1,5 +1,9 @@
 package com.mvc.spring.sample.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +26,8 @@ import com.mvc.spring.sample.service.MovieService;
 @Controller
 @RequestMapping(path = "/movies")
 public class MovieController {
+
+	private static final String LAST_MOVIES_SESSION_KEY = "last_movies";
 
 	// TODO implement delete
 
@@ -64,10 +70,26 @@ public class MovieController {
 	}
 
 	@RequestMapping(path = "", method = RequestMethod.GET)
-	public String list(Model model) {
+	public String list(Model model, HttpSession session) {
 
 		Iterable<Movie> movies = movieService.findAll();
-
+		
+		Object countObj = session.getAttribute("listViewCount");
+		Integer count;
+		if(countObj == null) {
+			count = 0;
+		}
+		else{
+			count = (Integer) countObj;
+		}
+		count++;
+		session.setAttribute("listViewCount", count);	
+		
+		
+		List<Movie> lastShownMovies = (List<Movie>) session.getAttribute(LAST_MOVIES_SESSION_KEY);
+		
+		model.addAttribute("lastShownMovies", lastShownMovies);
+		model.addAttribute("pageViewCount", count);
 		model.addAttribute("movieList", movies);
 		return "movies/movieList";
 	}
@@ -92,10 +114,21 @@ public class MovieController {
 	}
 
 	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
-	public String details(@PathVariable("id") Integer id, Model model) {
+	public String details(@PathVariable("id") Integer id, Model model, 
+			HttpSession session) {
 
 		Movie movie = movieService.findById(id);
-
+		
+		List<Movie> movies = (List<Movie>) session.getAttribute(LAST_MOVIES_SESSION_KEY);
+		
+		if(movies == null) {
+			movies = new ArrayList<>();
+		}
+		
+		movies.add(movie);
+		
+		session.setAttribute(LAST_MOVIES_SESSION_KEY, movies);
+		
 		model.addAttribute("movie", movie);
 		model.addAttribute("comment", new Comment());
 		return "movies/movieDetails";
