@@ -16,7 +16,6 @@ public class H2Config {
     public EmbeddedDatabase dataSource() {
         return new EmbeddedDatabaseBuilder().
                 setType(EmbeddedDatabaseType.H2).
-                addScript("db-test-movies.sql").
                 build();
     }
 
